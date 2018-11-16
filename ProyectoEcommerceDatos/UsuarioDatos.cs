@@ -45,7 +45,6 @@ namespace ProyectoEcommerceDatos
                     usuario.pwdUsu = reader["pwdUsu"].ToString();
                     usuario.fechaRegistroUsu = reader["fechaRegistroUsu"].ToString(); 
                     usuario.codTipoUsu = int.Parse(reader["codTipoUsu"].ToString());
-                    usuario.desTipoUsu = reader["desTipoUsu"].ToString();
                     usuario.mailUsu = reader["mailUsu"].ToString();
 
                     lstUsuario.Add(usuario);
