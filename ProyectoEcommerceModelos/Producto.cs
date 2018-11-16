@@ -21,7 +21,6 @@ namespace ProyectoEcommerceModelos
             if(string.IsNullOrEmpty(codPro))
                 throw new Exception("Ingrese un codigo a su productos");
             if (codPro.Length != 6)
-
                 throw new Exception("Debe contener 6 caractes el codigo de producto");
             if (string.IsNullOrEmpty(codPro))
                 throw new Exception("Ingrese un codigo a su productos");
