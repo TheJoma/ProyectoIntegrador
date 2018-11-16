@@ -49,6 +49,8 @@ namespace ProyectoEcommerceModelos
             if (string.IsNullOrEmpty(mailUsu))
                 throw new Exception("Debe colocar el correo del usuario");
 
+            
+
         }
     }
 }
