@@ -50,4 +50,6 @@ namespace ProyectoEcommerceModelos
                 throw new Exception("Debe colocar el correo del usuario");
 
         }
+    }
+}
 
