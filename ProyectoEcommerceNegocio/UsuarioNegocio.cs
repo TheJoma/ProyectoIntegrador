@@ -22,8 +22,7 @@ namespace ProyectoEcommerceNegocio
             string mensaje = "";
             try
             {
-                //aca se agrega la validaciones
-                //usuario.validar();
+                usuario.validar();
                 datos.crearUsuario(usuario);
                 mensaje = "USUARIO CREADO";
             }
@@ -50,8 +49,8 @@ namespace ProyectoEcommerceNegocio
                     if (existeUsuario)
                     {
 
-                        //aca se agrega la validaciones
-                        //usuario.validar();
+                        
+                        usuario.validar();
                         datos.actualizarUsuario(usuario);
                         mensaje = "USUARIO ACTUALIZADO";
                     }
