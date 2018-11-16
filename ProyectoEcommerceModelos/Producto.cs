@@ -18,6 +18,8 @@ namespace ProyectoEcommerceModelos
 
         public void validar()
         {
+            if(string.IsNullOrEmpty(codPro))
+                throw new Exception("Ingrese un codigo a su productos");
             if (string.IsNullOrEmpty(descripcionPro))
                 throw new Exception("Debe colocar descripcion a su  producto");
             if (string.IsNullOrEmpty(detallePro))
