@@ -12,9 +12,9 @@ namespace ProyectoEcommerceNegocio
     {
         TipoUsuarioDatos datos = new TipoUsuarioDatos();
 
-        public List<TipoUsuario> listarTipoUsuario()
+        public List<TipoUsuario> listarComboTipoUsuario()
         {
-            return datos.listarTipoUsuario();
+            return datos.listarComboTipoUsuario();
         }
     }
 }

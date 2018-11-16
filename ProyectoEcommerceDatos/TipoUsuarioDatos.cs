@@ -20,7 +20,7 @@ namespace ProyectoEcommerceDatos
             conexion = new SqlConnection(conexionBD);
         }
 
-        public List<TipoUsuario> listarTipoUsuario()
+        public List<TipoUsuario> listarComboTipoUsuario()
         {
             List<TipoUsuario> lstTipoUsuario = null;
             SqlCommand comando = new SqlCommand("usp_listar_tipoUsuario", conexion);
