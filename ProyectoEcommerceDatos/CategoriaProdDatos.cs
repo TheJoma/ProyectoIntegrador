@@ -34,7 +34,7 @@ namespace ProyectoEcommerceDatos
                 {
                     CategoriaProducto catPro = new CategoriaProducto();
                     catPro.codProdCat = int.Parse(reader["codProdCat"].ToString());
-                    catPro.nomProdCat = reader["nomUsu"].ToString();
+                    catPro.nomProdCat = reader["nomProdCat"].ToString();
 
                     lstCatPro.Add(catPro);
                 }
