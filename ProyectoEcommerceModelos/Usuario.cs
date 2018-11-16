@@ -43,8 +43,8 @@ namespace ProyectoEcommerceModelos
                 throw new Exception("Debe colocar el nick del usuario ");
             if (string.IsNullOrEmpty(pwdUsu))
                 throw new Exception("Debe colocar la contraseña del usuario  ");
-            if (string.IsNullOrEmpty(codTipoUsu.ToString()))
-                throw new Exception("Debe seleccionar un tipo de usuario");
+            /*if (string.IsNullOrEmpty(codTipoUsu.ToString()))
+                throw new Exception("Debe seleccionar un tipo de usuario");*/
             if (string.IsNullOrEmpty(mailUsu))
                 throw new Exception("Debe colocar el correo del usuario");
 
