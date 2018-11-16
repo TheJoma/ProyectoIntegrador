@@ -22,8 +22,8 @@ namespace ProyectoEcommerceNegocio
             string mensaje = "";
             try
             {
-                //aca se agrega la validaciones
-                //usuario.validar();
+               
+                producto.validar();
                 datos.crearProducto(producto);
                 mensaje = "PRODUCTO CREADO";
             }
@@ -42,7 +42,7 @@ namespace ProyectoEcommerceNegocio
                     var existeProducto = datos.listarProducto().Any(x => x.codPro == producto.codPro);
                     if (existeProducto)
                     {
-                        //producto.validar();
+                        producto.validar();
                         datos.actualizarProducto(producto);
                         mensaje = "PRODUCTO ACTUALIZADO";
                     }

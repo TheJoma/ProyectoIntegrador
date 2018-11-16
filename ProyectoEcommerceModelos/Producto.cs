@@ -16,5 +16,23 @@ namespace ProyectoEcommerceModelos
         public int codProdCat { get; set; }
         public int codProdMar { get; set; }
 
+        public void validar()
+        {
+            if (string.IsNullOrEmpty(descripcionPro))
+                throw new Exception("Debe colocar descripcion a su  producto");
+            if (string.IsNullOrEmpty(detallePro))
+                throw new Exception("Debe colocar un detalle a su producto");
+            if (string.IsNullOrEmpty(precioPro.ToString()))
+                throw new Exception("Debe colocar un precio a su producto");
+            if (string.IsNullOrEmpty(stockPro.ToString()))
+                throw new Exception("Debe colocar el stock de su  producto ");
+            if (string.IsNullOrEmpty(codProdCat.ToString()))
+                throw new Exception("Debe seleccionar una categoria");
+            if (string.IsNullOrEmpty(codProdMar.ToString()))
+                throw new Exception("Debe seleccionar una marca");
+
+
+
+        }
     }
 }
