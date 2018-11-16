@@ -16,9 +16,9 @@ namespace ProyectoEcommerceApi.Controllers
         MarcaProdNegocio negocios = new MarcaProdNegocio();
 
         [HttpGet]
-        public List<MarcaProducto> listarMarcaProd()
+        public List<MarcaProducto> listarComboMarcaProd()
         {
-            var lista = negocios.listarMarcaProd();
+            var lista = negocios.listarComboMarcaProd();
             return lista;
         }
     }

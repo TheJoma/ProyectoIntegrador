@@ -15,9 +15,9 @@ namespace ProyectoEcommerceApi.Controllers
     {
         TipoUsuarioNegocio negocios = new TipoUsuarioNegocio();
         [HttpGet]
-        public List<TipoUsuario> listarTipoUsuario()
+        public List<TipoUsuario> listarComboTipoUsuario()
         {
-            var lista = negocios.listarTipoUsuario();
+            var lista = negocios.listarComboTipoUsuario();
             return lista;
         }
     }

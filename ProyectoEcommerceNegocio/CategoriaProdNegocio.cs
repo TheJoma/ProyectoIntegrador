@@ -12,9 +12,9 @@ namespace ProyectoEcommerceNegocio
     {
         CategoriaProdDatos datos = new CategoriaProdDatos();
 
-        public List<CategoriaProducto> listarCategoriasProd()
+        public List<CategoriaProducto> listarComboCategoriasProd()
         {
-            return datos.listarCategoriasProd();
+            return datos.listarComboCategoriasProd();
         }
     }
 }

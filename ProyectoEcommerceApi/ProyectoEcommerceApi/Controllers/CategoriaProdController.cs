@@ -16,9 +16,9 @@ namespace ProyectoEcommerceApi.Controllers
         CategoriaProdNegocio negocios = new CategoriaProdNegocio();
 
         [HttpGet]
-        public List<CategoriaProducto> listarCategoriasProd()
+        public List<CategoriaProducto> listarComboCategoriasProd()
         {
-            var lista = negocios.listarCategoriasProd();
+            var lista = negocios.listarComboCategoriasProd();
             return lista;
         }
     }

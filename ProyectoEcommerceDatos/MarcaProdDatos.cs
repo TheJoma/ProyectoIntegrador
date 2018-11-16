@@ -20,7 +20,7 @@ namespace ProyectoEcommerceDatos
             conexion = new SqlConnection(conexionBD);
         }
 
-        public List<MarcaProducto> listarMarcaProd()
+        public List<MarcaProducto> listarComboMarcaProd()
         {
             List<MarcaProducto> lstMarcaProd = null;
             SqlCommand comando = new SqlCommand("usp_listarMarca_categoria", conexion);
