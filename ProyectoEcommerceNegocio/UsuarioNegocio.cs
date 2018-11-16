@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoEcommerceNegocio
 {
-    public class UsuarioNegocio
+    public class ProyectoNegocio
     {
         UsuarioDatos datos = new UsuarioDatos();
 

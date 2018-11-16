@@ -10,32 +10,32 @@ using System.Web.Http.Cors;
 
 namespace ProyectoEcommerceApi.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
-    public class UsuarioController : ApiController
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class ProductoController : ApiController
     {
 
-        ProyectoNegocio negocios = new ProyectoNegocio();
+        ProductoNegocio negocios = new ProductoNegocio();
 
         [HttpGet]
-        public List<Usuario> ListarUsuarios()
+        public List<Producto> listarProducto()
         {
-            var lista = negocios.listarUsuarios();
+            var lista = negocios.listarProducto();
             return lista;
         }
 
         [HttpPost]
-        public string crearUsuario(Usuario usuario)
+        public string crearProducto(Producto producto)
         {
             string mensaje = "";
-            mensaje = negocios.crearUsuario(usuario);
+            mensaje = negocios.crearProducto(producto);
             return mensaje;
         }
 
         [HttpPost]
-        public string actualizarUsuario(Usuario usuario)
+        public string actualizarProducto(Producto producto)
         {
             string mensaje = "";
-            mensaje = negocios.actualizarUsuario(usuario);
+            mensaje = negocios.actualizarProducto(producto);
             return mensaje;
         }
 
@@ -46,6 +46,9 @@ namespace ProyectoEcommerceApi.Controllers
             mensaje = negocios.eliminarUsuario(usuario.codUsu);
             return mensaje;
         }
+
+    }
+}
 
     }
 }
