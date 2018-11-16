@@ -40,15 +40,13 @@ namespace ProyectoEcommerceApi.Controllers
         }
 
         [HttpDelete]
-        public string eliminarUsuario(Usuario usuario)
+        public string eliminarProducto(Producto producto)
         {
             string mensaje = "";
-            mensaje = negocios.eliminarUsuario(usuario.codUsu);
+            mensaje = negocios.eliminarProducto(producto.codPro);
             return mensaje;
         }
 
     }
 }
 
-    }
-}
