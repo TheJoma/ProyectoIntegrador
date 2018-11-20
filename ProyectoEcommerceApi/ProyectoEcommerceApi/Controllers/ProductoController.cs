@@ -23,6 +23,13 @@ namespace ProyectoEcommerceApi.Controllers
             return lista;
         }
 
+        [HttpGet]
+        public Producto obtenerProducto(String codPro)
+        {
+            var producto = negocios.obtenerProducto(codPro);
+            return producto;
+        }
+
         [HttpPost]
         public string crearProducto(Producto producto)
         {
@@ -39,7 +46,7 @@ namespace ProyectoEcommerceApi.Controllers
             return mensaje;
         }
 
-        [HttpDelete]
+        [HttpPost]
         public string eliminarProducto(Producto producto)
         {
             string mensaje = "";

@@ -34,6 +34,12 @@ namespace ProyectoEcommerceNegocio
 
             return mensaje;
         }
+
+        public Producto obtenerProducto(String codPro)
+        {
+            return datos.obtenerProducto(codPro);
+        }
+
         public string actualizarProducto(Producto producto)
         {
             string mensaje = "";

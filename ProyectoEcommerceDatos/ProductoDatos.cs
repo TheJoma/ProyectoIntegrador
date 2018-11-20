@@ -51,6 +51,29 @@ namespace ProyectoEcommerceDatos
             return lstProducto;
         }
 
+        public Producto obtenerProducto(string codPro)
+        {
+            Producto producto = new Producto();
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("usp_obtener_producto", conexion);
+            comando.Parameters.AddWithValue("@codPro", codPro);
+
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                producto.codPro = reader["codPro"].ToString();
+                producto.descripcionPro = reader["descripcionPro"].ToString();
+                producto.detallePro = reader["detallePro"].ToString();
+                producto.precioPro = double.Parse(reader["precioPro"].ToString());
+                producto.stockPro = int.Parse(reader["stockPro"].ToString());
+                producto.codProdCat = int.Parse(reader["codProdCat"].ToString());
+                producto.codProdMar = int.Parse(reader["codProdMar"].ToString());
+            }
+            conexion.Close();
+
+            return producto;
+        }
+
         public void crearProducto(Producto producto)
         {
             conexion.Open();
