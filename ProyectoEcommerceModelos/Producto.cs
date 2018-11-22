@@ -21,8 +21,7 @@ namespace ProyectoEcommerceModelos
         {
          
          
-            if (string.IsNullOrEmpty(codPro.ToString()))
-                throw new Exception("Ingrese un codigo a su productos");
+           
             if (string.IsNullOrEmpty(descripcionPro))
                 throw new Exception("Debe colocar descripcion a su  producto");
             if (string.IsNullOrEmpty(detallePro))
@@ -36,7 +35,7 @@ namespace ProyectoEcommerceModelos
             if (string.IsNullOrEmpty(codProdMar.ToString()))
                 throw new Exception("Debe seleccionar una marca");
             if (string.IsNullOrEmpty(imgPro.ToString()))
-                throw new Exception("Ingrese un codigo a su productos");
+                throw new Exception("Ingrese imagen a su productos");
 
 
 

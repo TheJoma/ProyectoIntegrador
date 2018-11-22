@@ -24,7 +24,7 @@ namespace ProyectoEcommerceApi.Controllers
         }
 
         [HttpGet]
-        public Producto obtenerProducto(String codPro)
+        public Producto obtenerProducto(int codPro)
         {
             var producto = negocios.obtenerProducto(codPro);
             return producto;

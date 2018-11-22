@@ -11,8 +11,8 @@ namespace ProyectoEcommerceDatos
 {
     public class ProductoDatos
     {
-        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
-
+        //string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
+        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;Trusted_Connection=True";
         SqlConnection conexion;
 
         public ProductoDatos()
@@ -35,11 +35,12 @@ namespace ProyectoEcommerceDatos
                 while (reader.Read())
                 {
                     Producto prod = new Producto();
-                    prod.codPro = reader["codPro"].ToString();
+                    prod.codPro = int.Parse(reader["codPro"].ToString());
                     prod.descripcionPro = reader["descripcionPro"].ToString();
                     prod.detallePro = reader["detallePro"].ToString();
                     prod.precioPro = double.Parse(reader["precioPro"].ToString());
                     prod.stockPro = int.Parse(reader["stockPro"].ToString());
+                    prod.imgPro = reader["imgPro"].ToString();
                     prod.codProdCat = int.Parse(reader["codProdCat"].ToString());
                     prod.codProdMar = int.Parse(reader["codProdMar"].ToString());
 
@@ -51,7 +52,7 @@ namespace ProyectoEcommerceDatos
             return lstProducto;
         }
 
-        public Producto obtenerProducto(string codPro)
+        public Producto obtenerProducto(int codPro)
         {
             Producto producto = new Producto();
             conexion.Open();
@@ -61,11 +62,12 @@ namespace ProyectoEcommerceDatos
             SqlDataReader reader = comando.ExecuteReader();
             if (reader.HasRows)
             {
-                producto.codPro = reader["codPro"].ToString();
+                producto.codPro = int.Parse(reader["codPro"].ToString());
                 producto.descripcionPro = reader["descripcionPro"].ToString();
                 producto.detallePro = reader["detallePro"].ToString();
                 producto.precioPro = double.Parse(reader["precioPro"].ToString());
                 producto.stockPro = int.Parse(reader["stockPro"].ToString());
+                producto.imgPro = reader["imgPro"].ToString();
                 producto.codProdCat = int.Parse(reader["codProdCat"].ToString());
                 producto.codProdMar = int.Parse(reader["codProdMar"].ToString());
             }
@@ -79,11 +81,12 @@ namespace ProyectoEcommerceDatos
             conexion.Open();
             SqlCommand comando = new SqlCommand("usp_crear_producto", conexion);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@codPro", producto.codPro);
+       
             comando.Parameters.AddWithValue("@descripcionPro", producto.descripcionPro);
             comando.Parameters.AddWithValue("@detallePro", producto.detallePro);
             comando.Parameters.AddWithValue("@precioPro", producto.precioPro);
             comando.Parameters.AddWithValue("@stockPro", producto.stockPro);
+            comando.Parameters.AddWithValue("@imgPro", producto.imgPro);
             comando.Parameters.AddWithValue("@codProdCat", producto.codProdCat);
             comando.Parameters.AddWithValue("@codProdMar", producto.codProdMar);
 
@@ -102,6 +105,7 @@ namespace ProyectoEcommerceDatos
             comando.Parameters.AddWithValue("@detallePro", producto.detallePro);
             comando.Parameters.AddWithValue("@precioPro", producto.precioPro);
             comando.Parameters.AddWithValue("@stockPro", producto.stockPro);
+            comando.Parameters.AddWithValue("@imgPro", producto.imgPro);
             comando.Parameters.AddWithValue("@codProdCat", producto.codProdCat);
             comando.Parameters.AddWithValue("@codProdMar", producto.codProdMar);
 
@@ -109,7 +113,7 @@ namespace ProyectoEcommerceDatos
             conexion.Close();
         }
 
-        public void eliminarProducto(string codPro)
+        public void eliminarProducto(int codPro)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("usp_eliminar_producto", conexion);

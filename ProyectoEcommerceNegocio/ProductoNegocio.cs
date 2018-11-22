@@ -35,7 +35,7 @@ namespace ProyectoEcommerceNegocio
             return mensaje;
         }
 
-        public Producto obtenerProducto(String codPro)
+        public Producto obtenerProducto(int codPro)
         {
             return datos.obtenerProducto(codPro);
         }
@@ -66,7 +66,7 @@ namespace ProyectoEcommerceNegocio
             return mensaje;
         }
 
-        public string eliminarProducto(string codPro)
+        public string eliminarProducto(int codPro)
         {
             string mensaje = "";
             try
