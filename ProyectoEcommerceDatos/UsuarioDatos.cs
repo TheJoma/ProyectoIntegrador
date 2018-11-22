@@ -11,7 +11,7 @@ namespace ProyectoEcommerceDatos
 {
     public class UsuarioDatos
     {
-        string conexionBD = @"server=LAPTOP-SIRTGLBO\SQLJOSEMARIA;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
+        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
 
         SqlConnection conexion;
 
