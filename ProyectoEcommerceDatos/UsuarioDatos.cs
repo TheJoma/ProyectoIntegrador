@@ -44,7 +44,7 @@ namespace ProyectoEcommerceDatos
                     usuario.nickUsu = reader["nickUsu"].ToString();
                     usuario.pwdUsu = reader["pwdUsu"].ToString();
                     usuario.fechaRegistroUsu = reader["fechaRegistroUsu"].ToString(); 
-                    usuario.codTipoUsu = int.Parse(reader["codTipoUsu"].ToString());
+                    //usuario.codTipoUsu = int.Parse(reader["codTipoUsu"].ToString());
                     usuario.mailUsu = reader["mailUsu"].ToString();
 
                     lstUsuario.Add(usuario);
@@ -71,7 +71,7 @@ namespace ProyectoEcommerceDatos
             comando.Parameters.AddWithValue("@celUsu", usuario.celUsu);
             comando.Parameters.AddWithValue("@nickUsu", usuario.nickUsu);
             comando.Parameters.AddWithValue("@pwdUsu", usuario.pwdUsu);
-            comando.Parameters.AddWithValue("@codTipoUsu", usuario.codTipoUsu);
+            //comando.Parameters.AddWithValue("@codTipoUsu", usuario.codTipoUsu);
             comando.Parameters.AddWithValue("@mailUsu", usuario.mailUsu);
 
             comando.ExecuteNonQuery();
@@ -101,7 +101,7 @@ namespace ProyectoEcommerceDatos
             comando.Parameters.AddWithValue("@celUsu", usuario.celUsu);
             comando.Parameters.AddWithValue("@nickUsu", usuario.nickUsu);
             comando.Parameters.AddWithValue("@pwdUsu", usuario.pwdUsu);
-            comando.Parameters.AddWithValue("@codTipoUsu", usuario.codTipoUsu);
+           // comando.Parameters.AddWithValue("@codTipoUsu", usuario.codTipoUsu);
             comando.Parameters.AddWithValue("@mailUsu", usuario.mailUsu);
 
             comando.ExecuteNonQuery();
