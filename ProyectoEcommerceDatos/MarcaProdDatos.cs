@@ -23,7 +23,7 @@ namespace ProyectoEcommerceDatos
         public List<MarcaProducto> listarComboMarcaProd()
         {
             List<MarcaProducto> lstMarcaProd = null;
-            SqlCommand comando = new SqlCommand("usp_listarMarca_categoria", conexion);
+            SqlCommand comando = new SqlCommand("usp_listarMarca_categoria",    conexion);
             conexion.Open();
 
             SqlDataReader reader = comando.ExecuteReader();
