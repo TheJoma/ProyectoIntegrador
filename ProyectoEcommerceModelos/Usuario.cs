@@ -17,7 +17,7 @@ namespace ProyectoEcommerceModelos
         public string nickUsu { get; set; }
         public string pwdUsu { get; set; }
         public string fechaRegistroUsu { get; set; }
-        public int codTipoUsu { get; set; }
+        //public int codTipoUsu { get; set; }
         public string mailUsu { get; set; }
 
 
