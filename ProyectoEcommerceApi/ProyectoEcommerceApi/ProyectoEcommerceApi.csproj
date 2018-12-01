@@ -209,6 +209,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\2000368761182800784.jpg" />
+    <Content Include="Image\CP-EASYLIN180836681.jpg" />
+    <Content Include="Image\CP-EASYLIN182925063.jpg" />
+    <Content Include="Image\CP-EASYLIN183002383.jpg" />
+    <Content Include="Image\images-%281%29180605266.jpg" />
+    <Content Include="Image\Qué-es-un-184721336.jpg" />
+    <Content Include="Image\Razer-Cyno180159361.jpg" />
+    <Content Include="Image\wireless-m180014589.png" />
+    <Content Include="Image\xtk-500s_1185504874.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -256,7 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
