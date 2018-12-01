@@ -45,6 +45,32 @@ namespace ProyectoEcommerceDatos
             return lstCatPro;
         }
 
+        public CategoriaProducto obtenerCategoria(int codProdCat)
+        {
+            CategoriaProducto categoria = null;
+
+            SqlCommand comando = new SqlCommand("usp_obtener_categoria", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codProdCat", codProdCat);
+
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+
+                while (reader.Read())
+                {
+                    CategoriaProducto c = new CategoriaProducto();
+                    c.codProdCat = int.Parse(reader["codProdCat"].ToString());
+                    c.nomProdCat = reader["nomProdCat"].ToString();
+                    categoria = c;
+                }
+            }
+            conexion.Close();
+
+            return categoria;
+        }
 
     }
 }

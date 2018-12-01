@@ -66,6 +66,32 @@ namespace ProyectoEcommerceNegocio
             return mensaje;
         }
 
+        public string actualizarProductoConImagen(Producto producto)
+        {
+            string mensaje = "";
+            try
+            {
+                var existeProducto = datos.listarProducto().Any(x => x.codPro == producto.codPro);
+                if (existeProducto)
+                {
+                    producto.validar();
+                    datos.actualizarProductoConImagen(producto);
+                    mensaje = "PRODUCTO ACTUALIZADO";
+                }
+                else
+
+                    mensaje = "PRODUCTO NO EXISTE";
+
+
+            }
+            catch (Exception e)
+            {
+                mensaje = "ERROR EN LA ACTUALIZACION DEL PRODUCTO " + e.Message;
+            }
+
+            return mensaje;
+        }
+
         public string eliminarProducto(int codPro)
         {
             string mensaje = "";

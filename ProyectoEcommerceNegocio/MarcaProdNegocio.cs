@@ -16,5 +16,10 @@ namespace ProyectoEcommerceNegocio
         {
             return datos.listarComboMarcaProd();
         }
+
+        public MarcaProducto obtenerMarca(int codProdMar)
+        {
+            return datos.obtenerMarca(codProdMar);
+        }
     }
 }

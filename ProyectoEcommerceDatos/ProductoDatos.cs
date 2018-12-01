@@ -11,8 +11,8 @@ namespace ProyectoEcommerceDatos
 {
     public class ProductoDatos
     {
-        //string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
-        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;Trusted_Connection=True";
+        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
+        //string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;Trusted_Connection=True";
         SqlConnection conexion;
 
         public ProductoDatos()
@@ -24,7 +24,7 @@ namespace ProyectoEcommerceDatos
         {
             List<Producto> lstProducto = null;
             SqlCommand comando = new SqlCommand("usp_listar_producto", conexion);
-
+            comando.CommandType = CommandType.StoredProcedure;
 
             conexion.Open();
 
@@ -54,22 +54,32 @@ namespace ProyectoEcommerceDatos
 
         public Producto obtenerProducto(int codPro)
         {
-            Producto producto = new Producto();
-            conexion.Open();
+            Producto producto = null;
+            
             SqlCommand comando = new SqlCommand("usp_obtener_producto", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@codPro", codPro);
 
+            conexion.Open();
             SqlDataReader reader = comando.ExecuteReader();
+            
             if (reader.HasRows)
             {
-                producto.codPro = int.Parse(reader["codPro"].ToString());
-                producto.descripcionPro = reader["descripcionPro"].ToString();
-                producto.detallePro = reader["detallePro"].ToString();
-                producto.precioPro = double.Parse(reader["precioPro"].ToString());
-                producto.stockPro = int.Parse(reader["stockPro"].ToString());
-                producto.imgPro = reader["imgPro"].ToString();
-                producto.codProdCat = int.Parse(reader["codProdCat"].ToString());
-                producto.codProdMar = int.Parse(reader["codProdMar"].ToString());
+              
+                while (reader.Read())
+                {
+                    Producto p = new Producto();
+                    p.codPro = int.Parse(reader["codPro"].ToString());
+                    p.descripcionPro = reader["descripcionPro"].ToString();
+                    p.detallePro = reader["detallePro"].ToString();
+                    p.precioPro = double.Parse(reader["precioPro"].ToString());
+                    p.stockPro = int.Parse(reader["stockPro"].ToString());
+                    p.imgPro = reader["imgPro"].ToString();
+                    p.codProdCat = int.Parse(reader["codProdCat"].ToString());
+                    p.codProdMar = int.Parse(reader["codProdMar"].ToString());
+
+                    producto = p;
+                }
             }
             conexion.Close();
 
@@ -99,6 +109,24 @@ namespace ProyectoEcommerceDatos
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("usp_actualizar_producto", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codPro", producto.codPro);
+            comando.Parameters.AddWithValue("@descripcionPro", producto.descripcionPro);
+            comando.Parameters.AddWithValue("@detallePro", producto.detallePro);
+            comando.Parameters.AddWithValue("@precioPro", producto.precioPro);
+            comando.Parameters.AddWithValue("@stockPro", producto.stockPro);
+            // comando.Parameters.AddWithValue("@imgPro", producto.imgPro);
+            comando.Parameters.AddWithValue("@codProdCat", producto.codProdCat);
+            comando.Parameters.AddWithValue("@codProdMar", producto.codProdMar);
+
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void actualizarProductoConImagen(Producto producto)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("usp_actualizar_producto_con_imagen", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@codPro", producto.codPro);
             comando.Parameters.AddWithValue("@descripcionPro", producto.descripcionPro);

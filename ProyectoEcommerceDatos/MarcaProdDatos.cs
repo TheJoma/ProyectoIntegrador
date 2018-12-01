@@ -44,5 +44,37 @@ namespace ProyectoEcommerceDatos
 
             return lstMarcaProd;
         }
+
+        public MarcaProducto obtenerMarca(int codProdMar)
+        {
+            MarcaProducto marca = null;
+
+            SqlCommand comando = new SqlCommand("usp_obtener_marca", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codProdMar", codProdMar);
+
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+
+                while (reader.Read())
+                {
+                    MarcaProducto m = new MarcaProducto();
+                    m.codProdMar = int.Parse(reader["codProdMar"].ToString());
+                    m.nomProdMar = reader["nomProdMar"].ToString();
+                    marca = m;
+                }
+            }
+            conexion.Close();
+
+            return marca;
+        }
+
     }
+
 }
+
+   
+

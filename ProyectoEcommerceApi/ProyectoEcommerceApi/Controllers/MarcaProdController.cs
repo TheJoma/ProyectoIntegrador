@@ -21,5 +21,12 @@ namespace ProyectoEcommerceApi.Controllers
             var lista = negocios.listarComboMarcaProd();
             return lista;
         }
+
+        [HttpGet]
+        public MarcaProducto obtenerMarca(int codProdMar)
+        {
+            var marca = negocios.obtenerMarca(codProdMar);
+            return marca;
+        }
     }
 }

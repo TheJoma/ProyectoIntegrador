@@ -16,5 +16,10 @@ namespace ProyectoEcommerceNegocio
         {
             return datos.listarComboCategoriasProd();
         }
+
+        public CategoriaProducto obtenerCategoria(int codProdCat)
+        {
+            return datos.obtenerCategoria(codProdCat);
+        }
     }
 }

@@ -21,5 +21,13 @@ namespace ProyectoEcommerceApi.Controllers
             var lista = negocios.listarComboCategoriasProd();
             return lista;
         }
+
+        [HttpGet]
+        public CategoriaProducto obtenerCategoria(int codProdCat)
+        {
+            var categoria = negocios.obtenerCategoria(codProdCat);
+            return categoria;
+        }
+
     }
 }
