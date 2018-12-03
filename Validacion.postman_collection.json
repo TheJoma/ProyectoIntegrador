@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "ea396ef2-86cf-468f-9bdd-dc1e88a8385d",
+		"name": "Validacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validar-Transaccion completa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numeroTarjeta\":\"1234567890123451\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"111\",\n\t\"TitularTarjeta\": \"Rodrigo Urday\",\n\t\"MesExpiracionTarjeta\":\"01\",\n\t\"AñoExpiracionTarjeta\": \"2021\",\n\t\"MontoConsumir\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/Pago/Validar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"Pago",
+						"Validar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar-Tarjeta No existe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numeroTarjeta\":\"\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"\",\n\t\"TitularTarjeta\": \"\",\n\t\"MesExpiracionTarjeta\":\"\",\n\t\"AñoExpiracionTarjeta\": \"\",\n\t\"MontoConsumir\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/Pago/Validar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"Pago",
+						"Validar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar-Tarjeta no habilitada",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numeroTarjeta\":\"1234556789065432\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"222\",\n\t\"TitularTarjeta\": \"Rodrigo Urday2\",\n\t\"MesExpiracionTarjeta\":\"02\",\n\t\"AñoExpiracionTarjeta\": \"2022\",\n\t\"MontoConsumir\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/Pago/Validar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"Pago",
+						"Validar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar-Linea de creidot insuficiente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numeroTarjeta\":\"1234556789065434\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"333\",\n\t\"TitularTarjeta\": \"Rodrigo Urday4\",\n\t\"MesExpiracionTarjeta\":\"04\",\n\t\"AñoExpiracionTarjeta\": \"2014\",\n\t\"MontoConsumir\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/Pago/Validar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"Pago",
+						"Validar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

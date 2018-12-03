@@ -53,6 +53,8 @@ mailUsu	varchar(50) not null
 )
 go
 
+
+
 insert into tb_usuario values('JOSE MARIA','PARIASCA','MATEO',12345678,123456789,'JOMA','josemaria',getdate(),'joma@hotmail.com')
 go
 insert into tb_usuario values('RODRIGO','URDAY','VARGAS-CORBACHO',87654321,936692228,'ADM','ro',getdate(),'joma@hotmail.com')
@@ -137,6 +139,8 @@ lineaCredito decimal(10,2),
 creditoDisponible decimal(10,2)
 )
 go
+
+
 --Escenarios 
 -- Activado
 insert into tb_tarjeta values (1,'1234567890123451','Rodrigo Urday','111','01','2021',1,100,50)
@@ -144,8 +148,7 @@ insert into tb_tarjeta values (1,'1234567890123451','Rodrigo Urday','111','01','
 insert into tb_tarjeta values (1,'1234556789065432','Rodrigo Urday2','222','02','2022',0,100,50)
 --Saldo insuficiente
 insert into tb_tarjeta values (1,'1234556789065433','Rodrigo Urday3','333','03','2023',1,100,99)
---Tarjeta expirada	
-insert into tb_tarjeta values (1,'1234556789065434','Rodrigo Urday4','333','04','2014',1,100,99)
+
 
 select * from tb_tarjeta
  go
@@ -543,13 +546,16 @@ go
  )
  as
  begin
- select tar.numeroTarjeta,tar.nombreTarjeta,tar.securityCodeTarjeta,tar.mesExpiracionTarjeta,tar.añoExpiracionTarjeta 
+ select tar.numeroTarjeta,tar.nombreTarjeta,tar.tarjetaHabilitada,tar.creditoDisponible 
  from tb_tarjeta tar where tar.idtipoTarjeta = @idTipoTarjeta 
 						
-							and tar.numeroTarjeta=@numeroTarjeta 
+						and tar.numeroTarjeta=@numeroTarjeta 
 						and tar.nombreTarjeta = @nombreTarjeta 
 						and tar.securityCodeTarjeta=@securityCodeTarjeta 
 						and tar.mesExpiracionTarjeta = @mesExpiracionTarjeta
 						and tar.añoExpiracionTarjeta=@añoExpiracionTarjeta
  end
  go
+
+ exec sp_GetTarjetaByInfo 1,'1234567890123451','Rodrigo Urday','111','01','2021'
+
