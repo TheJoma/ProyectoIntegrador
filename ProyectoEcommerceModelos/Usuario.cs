@@ -36,9 +36,9 @@ namespace ProyectoEcommerceModelos
             if (dniUsu.Length != 8)
                 throw new Exception("Debe contener 8 caracteres el DNI del usuario");
             if (string.IsNullOrEmpty(celUsu))
-                throw new Exception("Debe colocar el celular o telefono del usuario ");
-            if (celUsu.Length != 9 || celUsu.Length != 7)
-                throw new Exception("Debe colocar un celular o telefono valido");
+                throw new Exception("Debe colocar el celular del usuario ");
+            if (celUsu.Length != 9)
+                throw new Exception("Debe colocar un celular válido");
             if (string.IsNullOrEmpty(nickUsu))
                 throw new Exception("Debe colocar el nick del usuario ");
             if (string.IsNullOrEmpty(pwdUsu))
