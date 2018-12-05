@@ -79,7 +79,7 @@ namespace ProyectoEcommerceApi.Controllers
 
         [HttpGet]
         [Route("api/Producto/obtenerImagen")]
-        public HttpResponseMessage obtenerImagen(int codPro)
+        public HttpResponseMessage obtenerImagen(int codPro,int aux)
         {
             Producto producto = negocios.obtenerProducto(codPro);
             var response = Request.CreateResponse(HttpStatusCode.OK);
@@ -89,7 +89,8 @@ namespace ProyectoEcommerceApi.Controllers
             var contents = System.IO.File.ReadAllBytes(path);
             System.IO.MemoryStream ms = new System.IO.MemoryStream(contents);
             response.Content = new StreamContent(ms);
-            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/" + ext);
+            ext=ext.Replace(".", "");
+            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/"+ext); 
             return response;
         }
 
