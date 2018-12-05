@@ -39,7 +39,7 @@ namespace ProyectoEcommerceApi.Controllers
             return mensaje;
         }
 
-        [HttpDelete]
+        [HttpPost]
         public string eliminarUsuario(Usuario usuario)
         {
             string mensaje = "";
