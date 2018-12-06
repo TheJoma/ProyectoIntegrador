@@ -66,7 +66,7 @@ namespace ProyectoEcommerceApi.Controllers
             Producto producto = new Producto();
             producto.descripcionPro = httpRequest["descripcionPro"];
             producto.detallePro= httpRequest["detallePro"];
-            producto.precioPro= double.Parse(httpRequest["precioPro"]);
+            producto.precioPro= double.Parse(httpRequest["precioProx100"])/100;
             producto.stockPro = int.Parse(httpRequest["stockPro"]);
             producto.imgPro = imgPro;
             producto.codProdCat = int.Parse(httpRequest["codProdCat"]);
@@ -121,7 +121,7 @@ namespace ProyectoEcommerceApi.Controllers
             producto.codPro = int.Parse(httpRequest["codPro"]);
             producto.descripcionPro = httpRequest["descripcionPro"];
             producto.detallePro = httpRequest["detallePro"];
-            producto.precioPro = double.Parse(httpRequest["precioPro"]);
+            producto.precioPro = double.Parse(httpRequest["precioProx100"]) / 100;
             producto.stockPro = int.Parse(httpRequest["stockPro"]);
             producto.imgPro = imgPro;
             producto.codProdCat = int.Parse(httpRequest["codProdCat"]);
