@@ -552,11 +552,11 @@ go
  
  select* from tb_usuario
  go
-
+ /*
  update tb_producto
  set stockPro=0
  where codPro=1
- go
+ go*/
 
  select * from tb_producto
  go
@@ -583,11 +583,11 @@ begin
 	select * from tb_estado_venta
 end
 go
-
+/*
 
 execute usp_Listar_Estado_Venta
 go
-
+*/
 -- PROCEDURE PARA OBTENER ESTADO DE VENTA
 
 if object_id('usp_obtener_estado_venta') is not null
@@ -603,10 +603,10 @@ begin
 	select * from tb_estado_venta where codEstBol=@codEstBol
 end
 go
-
+/*
 execute usp_obtener_estado_venta 1
 go
-
+*/
 --- tabla
 
 
@@ -620,6 +620,30 @@ precioTotal money not null,
 codEstBol int foreign key references tb_estado_venta(codEstBol) not null
 )
 go
+
+-- PROCEDURE PARA ACTULIZAR EL ESTADO DE LA VENTA
+if object_id('usp_actualizar_estado_Venta') is not null
+begin
+	drop procedure usp_actualizar_estado_Venta
+end
+go
+
+create procedure usp_actualizar_estado_Venta 
+@codBol int,
+@codEstBol int
+as
+begin  
+	begin 
+		update tb_venta
+		set codEstBol = @codEstBol
+		where codBol = @codBol
+	end	 
+end
+go
+/*
+select * from tb_venta
+execute usp_actualizar_estado_Venta 1,1
+go*/
 
 -- PROCEDURE PARA INSERTAR UNA VENTA QUE RETORNA EL CODBOL GENERADA
 if object_id('usp_registrar_Venta') is not null
@@ -639,14 +663,23 @@ begin
 	insert into tb_venta values(@codUsu,getdate(),@numTarjeta,@precioTotal,@codEstBol)
 	 
 	set @codBol = (select top (1) codBol from tb_venta order by codBol desc)
-	 
-end
-go
 
+	begin
+		Declare @Monto As money
+		Set @Monto=(Select creditoDisponible From tb_tarjeta Where numeroTarjeta=@numTarjeta)
+		update tb_tarjeta
+		set creditoDisponible = @Monto - @precioTotal
+		where numeroTarjeta = @numTarjeta
+	end	 
+end
+go  
+/*
 Declare @codBol int;
 execute usp_registrar_Venta 1,'123456789',100.00,1 ,@codBol output
 print @codBol
-go
+go*/
+
+select * from tb_venta
 
 -- PROCEDURE PARA LISTAR TODAS LAS VENTAS POR EL ADMINISTRADOR
 if object_id('usp_listar_todo_ventas') is not null
@@ -697,9 +730,9 @@ begin
 	where codUsu = @codUsu
 end
 go
-
+/*
 execute usp_listar_ventas_por_usuario  1
-go
+go*/
 
 
 --TABLA
@@ -732,14 +765,17 @@ begin
 	begin
 		insert into tb_detalle_boleta values(@codBol,@codProd,@canProd,@preProd)
 	end
-	update tb_producto
+	begin
+	update tb_producto 
 	set stockPro = @Stock - @canProd
 	where codPro = @codProd
+	end
 end
 go
-
-execute usp_registrar_detalle_Venta 1,2,7,10.20
-go
+/*
+execute usp_registrar_detalle_Venta 10,1,7,10.20
+go*/
+ 
 
 
 -- PROCEDURE PARA LISTAR LAS DETALLES DE VENTAS POR VENTAS
@@ -757,6 +793,6 @@ begin
 	where codBol = @codBol
 end
 go
-
+/*
 execute usp_listar_detalle_ventas_por_ventas  1
-go
+go*/
