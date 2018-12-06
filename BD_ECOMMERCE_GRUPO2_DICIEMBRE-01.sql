@@ -9,6 +9,7 @@ End
 go
 
 
+
 Create database BD_PROYECTO_INTEGRADOR
 go
 
@@ -119,9 +120,11 @@ nombreTipoTarjeta varchar(20)
 )
 go
 
+select * from tb_TipoTarjeta
+
 insert into tb_TipoTarjeta values ('Visa')
 insert into tb_TipoTarjeta values ('MasterCard')
-insert into tb_TipoTarjeta values ('DinersClub')
+
 
 select * from tb_TipoTarjeta
 go
@@ -559,3 +562,6 @@ go
 
  exec sp_GetTarjetaByInfo 1,'1234567890123451','Rodrigo Urday','111','01','2021'
 
+ use BD_PROYECTO_INTEGRADOR
+
+ select * from tb_tarjeta
