@@ -12,7 +12,7 @@ namespace ProyectoEcommerceDatos
 {
     public class VentaDatos
     {
-        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
+        string conexionBD = @"server=LAPTOP-SIRTGLBO\SQLJOSEMARIA;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
         SqlConnection conexion;
 
         public VentaDatos()
@@ -20,7 +20,21 @@ namespace ProyectoEcommerceDatos
             conexion = new SqlConnection(conexionBD);
         }
 
-        public void crearVenta(Venta venta)
+        public void actualizarEstadoVenta(Venta venta)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("usp_actualizar_estado_Venta", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codBol", venta.codBol);
+            comando.Parameters.AddWithValue("@codEstBol", venta.codEstBol);
+
+            comando.ExecuteNonQuery(); 
+
+
+            conexion.Close(); 
+        }
+
+        public int crearVenta(Venta venta)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("usp_registrar_Venta", conexion);
@@ -29,10 +43,15 @@ namespace ProyectoEcommerceDatos
             comando.Parameters.AddWithValue("@numTarjeta", venta.numTarjeta);
             comando.Parameters.AddWithValue("@precioTotal", venta.precioTotal);
             comando.Parameters.AddWithValue("@codEstBol", venta.codEstBol);
-            comando.Parameters.AddWithValue("@codBol", venta.codBol);  
+            comando.Parameters.Add("@codBol", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             comando.ExecuteNonQuery();
+            int codBol = int.Parse(comando.Parameters["@codBol"].Value.ToString());
+
+
             conexion.Close();
+
+            return codBol;
         }
 
         public List<Venta> listarTodasLasVentas()

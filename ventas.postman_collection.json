@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "4bd23328-01a2-438e-a5de-765a9645df69",
+		"name": "ventas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegistrarVenta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"codUsu\" : \"1\",\n\"numTarjeta\": \"123456789\",\n\"precioTotal\": \"100.00\",\n\"codEstBol\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/venta/crearDetalleVenta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"venta",
+						"crearDetalleVenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ComboEstado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/estadoventa/listarComboEstadoVentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"estadoventa",
+						"listarComboEstadoVentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DetalleVenta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"codBol\" : \"10\",\n\"codProd\": \"1\",\n\"canProd\": \"7\",\n\"preProd\": \"10.20\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/detalleventa/crearDetalleVenta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"detalleventa",
+						"crearDetalleVenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarEstado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"codBol\" : \"1\", \n\"codEstBol\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:56527/api/venta/actualizarEstadoVenta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56527",
+					"path": [
+						"api",
+						"venta",
+						"actualizarEstadoVenta"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

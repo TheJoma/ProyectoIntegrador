@@ -15,13 +15,21 @@ namespace ProyectoEcommerceApi.Controllers
     {
         VentaNegocio negocios = new VentaNegocio();
 
-
         [HttpPost]
-        public string crearVenta(Venta venta)
+        public string actualizarEstadoVenta(Venta venta)
         {
             string mensaje = "";
-            mensaje = negocios.crearVenta(venta);
+            mensaje = negocios.actualizarEstadoVenta(venta);
             return mensaje;
+        }
+
+        [HttpPost]
+        public int crearVenta(Venta venta)
+        {
+             negocios.crearVenta(out int codBol,venta);
+            int response = codBol;
+
+            return  response;
         }
 
         [HttpGet]

@@ -12,7 +12,7 @@ namespace ProyectoEcommerceDatos
     public class DetalleVentasDatos
     {
 
-        string conexionBD = @"server=.;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
+        string conexionBD = @"server=LAPTOP-SIRTGLBO\SQLJOSEMARIA;database=BD_PROYECTO_INTEGRADOR;uid=sa;pwd=sql";
         SqlConnection conexion;
 
         public DetalleVentasDatos()

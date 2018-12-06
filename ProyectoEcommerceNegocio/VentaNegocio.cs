@@ -12,13 +12,48 @@ namespace ProyectoEcommerceNegocio
     {
         VentaDatos datos = new VentaDatos();
 
-        public string crearVenta(Venta venta)
+        public string actualizarEstadoVenta(Venta venta)
         {
             string mensaje = "";
             try
             {
+                if (venta.codBol == 0)
+                {
+                    mensaje = "CODIGO DE BOLETA NO ES VALIDO";
+                }
+                else
+                {
+                    var existeBoleta = datos.listarTodasLasVentas().Any(x => x.codBol == venta.codBol);
+                    if (existeBoleta)
+                    {
+
+
+                       // venta.validar();
+                        datos.actualizarEstadoVenta(venta);
+                        mensaje = "ESTADO ACTUALIZADO";
+                    }
+                    else
+
+                        mensaje = "BOLETA NO EXISTE";
+
+                }
+            }
+            catch (Exception e)
+            {
+                mensaje = "ERROR EN LA ACTUALIZACION DEL ESTADO " + e.Message;
+            }
+
+            return mensaje;
+        }
+
+        public string crearVenta(out int codBol,Venta venta)
+        {
+            string mensaje = "";
+            codBol = 0;
+            try
+            {
                 // venta.validar(); 
-                datos.crearVenta(venta);
+                codBol = datos.crearVenta(venta);
                 mensaje = " VENTA REGISTRADA";
             }
             catch (Exception e)
