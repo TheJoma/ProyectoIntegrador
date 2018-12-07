@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"numeroTarjeta\":\"1234567890123451\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"111\",\n\t\"TitularTarjeta\": \"Rodrigo Urday\",\n\t\"MesExpiracionTarjeta\":\"01\",\n\t\"AñoExpiracionTarjeta\": \"2021\",\n\t\"MontoConsumir\": 0\n}"
+					"raw": "{\n\t\"numeroTarjeta\":\"1234567890123451\",\n\t\"TipoTarjeta\": 1 ,\n\t\t\"CodigoSeguridadTarjeta\": \"111\",\n\t\"TitularTarjeta\": \"Rodrigo Urday\",\n\t\"MesExpiracionTarjeta\":\"01\",\n\t\"AñoExpiracionTarjeta\": \"2021\",\n\t\"MontoConsumir\": 0\n}"
 				},
 				"url": {
 					"raw": "http://localhost:56527/api/Pago/Validar",
@@ -115,7 +115,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"numeroTarjeta\":\"1234556789065434\",\n\t\"TipoTarjeta\": 1 ,\n\t\"CodigoSeguridadTarjeta\": \"333\",\n\t\"TitularTarjeta\": \"Rodrigo Urday4\",\n\t\"MesExpiracionTarjeta\":\"04\",\n\t\"AñoExpiracionTarjeta\": \"2014\",\n\t\"MontoConsumir\": 0\n}"
+					"raw": "{\n\t\"numeroTarjeta\":\"1234556789065433\",\n\t\"TipoTarjeta\": 1 , \n\t\"CodigoSeguridadTarjeta\": \"333\",\n\t\"TitularTarjeta\": \"Rodrigo Urday3\",\n\t\"MesExpiracionTarjeta\":\"03\",\n\t\"AñoExpiracionTarjeta\": \"2023\",\n\t\"MontoConsumir\": 200\n}"
 				},
 				"url": {
 					"raw": "http://localhost:56527/api/Pago/Validar",
