@@ -813,3 +813,5 @@ select*from tb_usuario;
 
 
 select * from tb_venta
+
+select * from tb_detalle_boleta
